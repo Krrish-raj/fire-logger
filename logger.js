@@ -20,9 +20,9 @@ const createLogger = function(config, type) {
   const supportedTypes = ["accessLogger", "eventLogger", "logger"];
   if (supportedTypes.indexOf(type) == -1) {
     throw new Error(
-        `Invalid logger type, expecting one of ${supportedTypes.join(
-            ","
-        )}, got ${type}`
+      `Invalid logger type, expecting one of ${supportedTypes.join(
+        ","
+      )}, got ${type}`
     );
   }
 
@@ -34,17 +34,17 @@ const createLogger = function(config, type) {
 
   if (config.logConsole) {
     transports.push(
-        new winston.transports.Console({
-          format: combine(prettyPrint())
-        })
+      new winston.transports.Console({
+        format: combine(prettyPrint())
+      })
     );
   }
 
   let Bl = blackList(config.blackList);
   const format = winston.format.combine(
-      Bl(),
-      winston.format.timestamp(),
-      winston.format.json()
+    Bl(),
+    winston.format.timestamp(),
+    winston.format.json()
   );
 
   return winston.createLogger({
@@ -55,7 +55,9 @@ const createLogger = function(config, type) {
 };
 
 const getEventMeta = () => {
-  const x = require('continuation-local-storage').getNamespace("slicepay-serviceMetaDetails");
+  const x = require("continuation-local-storage").getNamespace(
+    "slicepay-serviceMetaDetails"
+  );
   const serviceMeta = {};
   serviceMeta["service"] = x && x.get("service");
   serviceMeta["action"] = x && x.get("action");
@@ -75,11 +77,9 @@ class Logger {
    * @param {string} serviceName Name of the Serive for which the events will be defined
    * @returns {Object}
    */
-  getEventLogger(serviceName) {
-
+  getEventLogger() {
     return {
       type: "eventLogger",
-      event: serviceName ||  "NA",
       /**
        * @param {string} eventTag // EVENT_DESCRIPTION
        * @param {object} data // EVENT_DESCRIPTION
@@ -89,8 +89,8 @@ class Logger {
           throw error("Please enter a valid event tag");
         }
         eventTag = eventTag.replace(/ /g, "_").toUpperCase();
-        if (typeof data != "object" || Array.isArray(data) ) {
-          data = { data }
+        if (typeof data != "object" || Array.isArray(data)) {
+          data = { data };
         }
         const dataToLog = Object.assign({}, data, getEventMeta());
         this.eventLogger.info(eventTag, dataToLog);
@@ -100,8 +100,8 @@ class Logger {
           throw error("Please enter a valid event tag");
         }
         eventTag = eventTag.replace(/ /g, "_").toUpperCase();
-        if (typeof data != "object" || Array.isArray(data) ) {
-          data = { data }
+        if (typeof data != "object" || Array.isArray(data)) {
+          data = { data };
         }
         const dataToLog = Object.assign({}, data, getEventMeta());
         this.eventLogger.error(eventTag, dataToLog);
@@ -111,10 +111,10 @@ class Logger {
           throw error("Please enter a valid event tag");
         }
         eventTag = eventTag.replace(/ /g, "_").toUpperCase();
-        if (typeof data != "object" || Array.isArray(data) ) {
-          data = { data }
+        if (typeof data != "object" || Array.isArray(data)) {
+          data = { data };
         }
-        const dataToLog = Object.assign({}, data,getEventMeta());
+        const dataToLog = Object.assign({}, data, getEventMeta());
         this.eventLogger.info(eventTag, dataToLog);
       }.bind(this)
     };

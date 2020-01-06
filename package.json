@@ -1,50 +1,30 @@
 {
-  "_args": [
-    [
-      "sp-uni-logger@1.0.16",
-      "/Users/divyanshusrivastava/Development/firefly"
-    ]
-  ],
-  "_from": "sp-uni-logger@1.0.16",
-  "_id": "sp-uni-logger@1.0.16",
-  "_inBundle": false,
-  "_integrity": "sha512-F9mzv/sgmwWDPuOdMZ1RgHliTra00NIuGwebqSJyckRJ7QFv0RQ6NVCyGQS6HH/3c7QPZJlMw4QnxCjgacBALQ==",
-  "_location": "/sp-uni-logger",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "sp-uni-logger@1.0.16",
-    "name": "sp-uni-logger",
-    "escapedName": "sp-uni-logger",
-    "rawSpec": "1.0.16",
-    "saveSpec": null,
-    "fetchSpec": "1.0.16"
+  "name": "fire-logger",
+  "version": "1.0.0",
+  "description": "Developer handy logger to meet more use cases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "_requiredBy": [
-    "/"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krrish-raj/fire-logger.git"
+  },
+  "keywords": [
+    "logger"
   ],
-  "_resolved": "https://registry.npmjs.org/sp-uni-logger/-/sp-uni-logger-1.0.16.tgz",
-  "_spec": "1.0.16",
-  "_where": "/Users/divyanshusrivastava/Development/firefly",
-  "author": "",
+  "author": "krrish-raj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Krrish-raj/fire-logger/issues"
+  },
+  "homepage": "https://github.com/Krrish-raj/fire-logger#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "continuation-local-storage": "^3.2.1",
-    "express-winston": "^3.2.0",
     "lodash.merge": "^4.6.2",
-    "uuid": "^3.3.2",
+    "uuid": "^3.3.3",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^3.9.0"
-  },
-  "description": "The sp-uni-logger module is a wrapper on standard winston package, which exposes three different logger instance to use in the node application.",
-  "devDependencies": {},
-  "license": "ISC",
-  "main": "index.js",
-  "name": "sp-uni-logger",
-  "scripts": {
-    "doc": "jsdoc -c jsdoc.conf.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.16"
+    "winston-daily-rotate-file": "^4.4.1"
+  }
 }
