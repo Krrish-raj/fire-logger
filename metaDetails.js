@@ -1,6 +1,6 @@
 "use strict";
 
-const uuidv1 = require("uuid/v1");
+const uuidv4 = require("uuid/v4");
 const createNamespace = require("continuation-local-storage").createNamespace;
 const apiRequest = createNamespace("slicepay-node-application");
 const userDetails = createNamespace("slicepay-userDetails");
@@ -10,7 +10,7 @@ module.exports = {
     // setting unique request Id for each API request
     // TODO : use request-id from header if exist, otherwise generate new uuid
     apiRequest.run(() => {
-      apiRequest.set("reqId", uuidv1());
+      apiRequest.set("reqId", uuidv4());
       apiRequest.set(
         "deviceid",
         req.headers["sp-device-id"] ? req.headers["sp-device-id"] : "NA"
