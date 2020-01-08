@@ -16,7 +16,7 @@ const getUUID = function(req) {
 };
 
 const getReqID = function(req) {
-  return req.headers.request - id || uuidv1();
+  return req.headers["request-id"] || uuidv1();
 };
 
 module.exports = {
