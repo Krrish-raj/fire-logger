@@ -24,7 +24,7 @@ module.exports = {
     // setting unique request Id for each API request
     // TODO : use request-id from header if exist, otherwise generate new uuid
     apiRequest.run(() => {
-      apiRequest.set("reqId", getReqID());
+      apiRequest.set("reqId", getReqID(req));
       apiRequest.set(
         "deviceid",
         req.headers["sp-device-id"] ? req.headers["sp-device-id"] : "NA"
