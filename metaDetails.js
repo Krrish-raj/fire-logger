@@ -10,7 +10,7 @@ const getUUID = function(req) {
     return req._user.uuid;
   }
   if (req.headers.uuid) {
-    return uuid;
+    return req.headers.uuid;
   }
   return "NA";
 };
