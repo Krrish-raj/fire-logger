@@ -1,6 +1,6 @@
 {
   "name": "logfly",
-  "version": "1.0.8",
+  "version": "1.0.4",
   "description": "Developer handy logger to meet more use cases.",
   "main": "index.js",
   "scripts": {
