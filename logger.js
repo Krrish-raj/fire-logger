@@ -55,7 +55,7 @@ const createLogger = function(config, type) {
 };
 
 const getEventMeta = () => {
-  const x = require("continuation-local-storage").getNamespace(
+  const x = require("cls-hooked").getNamespace(
     "slicepay-serviceMetaDetails"
   );
   const serviceMeta = {};
