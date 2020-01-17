@@ -4,7 +4,7 @@ A wrapper over winston to improve usability.
 
 ## Features
 
-The sp-uni-logger module is a wrapper on standard winston package, which exposes three different logger instance to use in the node application.
+The logfly module is a wrapper on standard winston package, which exposes three different logger instance to use in the node application.
 
 - Logger: to log developer logs directly from application
 - Event-logger: to log for some specific events under specific services to provide extension to other teams.
