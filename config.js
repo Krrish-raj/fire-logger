@@ -2,7 +2,7 @@
 // holds default config for the logger module
 
 const isProduction = process.env.NODE_ENV === "production" ? true : false;
-const logLevel = process.env.logLevel || ((isProduction && "error") || "info");
+const logLevel = process.env.logLevel || (isProduction && "error") || "info";
 const logConsole =
   process.env.logConsole == "true" || (isProduction ? false : true);
 
@@ -12,8 +12,8 @@ const config = {
   },
   accessLogger: {
     filenamePrefix: "access",
-    logResponseBody: true,
-    logRequestBody: true,
+    logResponseBody: false,
+    logRequestBody: false,
     requestWhitelist: [
       "url",
       "headers",

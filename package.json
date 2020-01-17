@@ -1,6 +1,6 @@
 {
-  "name": "fire-logger",
-  "version": "1.0.0",
+  "name": "logfly",
+  "version": "1.0.6",
   "description": "Developer handy logger to meet more use cases.",
   "main": "index.js",
   "scripts": {

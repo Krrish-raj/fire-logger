@@ -54,17 +54,13 @@ module.exports = blackList =>
       apiRequest && apiRequest.get("deviceid")
         ? apiRequest.get("deviceid")
         : "not_found";
-    info["userID"] =
-    userDetails && userDetails.get("userID")
-      ? userDetails.get("userID")
-      : "not_found";
-    info["uuid"] = 
-        userDetails && userDetails.get("uuid")
-      ? userDetails.get("uuid")
-            : "not_found"
+    info["uuid"] =
+      userDetails && userDetails.get("uuid")
+        ? userDetails.get("uuid")
+        : "not_found";
     info.message = messageData;
     if (info.request) {
-      info.request.body = JSON.stringify(info.request.body)
+      info.request.body = JSON.stringify(info.request.body);
     }
     info.response = { data: JSON.stringify(info.response) };
     return info;
