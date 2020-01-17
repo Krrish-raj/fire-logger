@@ -16,7 +16,7 @@ const getUUID = function(req) {
 };
 
 const getReqID = function(req) {
-  return req.headers["request-id"] || uuidv1();
+  return req.headers["request-id"] || uuidv4();
 };
 
 module.exports = {
@@ -26,8 +26,8 @@ module.exports = {
     apiRequest.run(() => {
       apiRequest.set("reqId", getReqID(req));
       apiRequest.set(
-        "deviceid",
-        req.headers["sp-device-id"] ? req.headers["sp-device-id"] : "NA"
+          "deviceid",
+          req.headers["sp-device-id"] ? req.headers["sp-device-id"] : "NA"
       );
       next();
     });
