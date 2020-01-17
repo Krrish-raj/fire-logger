@@ -3,7 +3,7 @@
 const { format } = require("winston");
 // const blackList = require('./config.js')['blackList'];
 
-const getNamespace = require("continuation-local-storage").getNamespace;
+const getNamespace = require("cls-hooked").getNamespace;
 
 const safeJSONParse = string => {
   try {

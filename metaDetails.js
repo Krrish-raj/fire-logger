@@ -1,7 +1,7 @@
 "use strict";
 
-const uuidv1 = require("uuid/v1");
-const createNamespace = require("continuation-local-storage").createNamespace;
+const uuidv4 = require("uuid/v4");
+const createNamespace = require("cls-hooked").createNamespace;
 const apiRequest = createNamespace("slicepay-node-application");
 const userDetails = createNamespace("slicepay-userDetails");
 
