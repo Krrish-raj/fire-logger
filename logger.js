@@ -86,7 +86,7 @@ class Logger {
        */
       log: function(eventTag, data) {
         if (!eventTag || typeof eventTag !== "string") {
-          throw error("Please enter a valid event tag");
+          throw new Error("Please enter a valid event tag");
         }
         eventTag = eventTag.replace(/ /g, "_").toUpperCase();
         if (typeof data != "object" || Array.isArray(data)) {
@@ -97,7 +97,7 @@ class Logger {
       }.bind(this),
       error: function(eventTag, data) {
         if (!eventTag || typeof eventTag !== "string") {
-          throw error("Please enter a valid event tag");
+          throw new Error("Please enter a valid event tag");
         }
         eventTag = eventTag.replace(/ /g, "_").toUpperCase();
         if (typeof data != "object" || Array.isArray(data)) {
@@ -108,7 +108,7 @@ class Logger {
       }.bind(this),
       info: function(eventTag, data) {
         if (!eventTag || typeof eventTag !== "string") {
-          throw error("Please enter a valid event tag");
+          throw new Error("Please enter a valid event tag");
         }
         eventTag = eventTag.replace(/ /g, "_").toUpperCase();
         if (typeof data != "object" || Array.isArray(data)) {
