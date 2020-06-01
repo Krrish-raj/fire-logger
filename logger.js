@@ -54,11 +54,12 @@ const createLogger = function(config, type) {
   });
 };
 
-const getEventMeta = () => {
+const getEventMeta = (feature) => {
   const x = require("cls-hooked").getNamespace(
     "slicepay-serviceMetaDetails"
   );
   const serviceMeta = {};
+  if (feature) serviceMeta.feature = feature;
   serviceMeta["service"] = x && x.get("service");
   serviceMeta["action"] = x && x.get("action");
   return serviceMeta;
@@ -74,10 +75,10 @@ class Logger {
   //getEventLogger
   /**
    *
-   * @param {string} serviceName Name of the Serive for which the events will be defined
+   * @param {string} feature feature of the event - if available
    * @returns {Object}
    */
-  getEventLogger() {
+  getEventLogger(feature) {
     return {
       type: "eventLogger",
       /**
@@ -92,7 +93,7 @@ class Logger {
         if (typeof data != "object" || Array.isArray(data)) {
           data = { data };
         }
-        const dataToLog = Object.assign({}, data, getEventMeta());
+        const dataToLog = Object.assign({}, data, getEventMeta(feature));
         this.eventLogger.info(eventTag, dataToLog);
       }.bind(this),
       error: function(eventTag, data) {
@@ -103,7 +104,7 @@ class Logger {
         if (typeof data != "object" || Array.isArray(data)) {
           data = { data };
         }
-        const dataToLog = Object.assign({}, data, getEventMeta());
+        const dataToLog = Object.assign({}, data, getEventMeta(feature));
         this.eventLogger.error(eventTag, dataToLog);
       }.bind(this),
       info: function(eventTag, data) {
@@ -114,7 +115,7 @@ class Logger {
         if (typeof data != "object" || Array.isArray(data)) {
           data = { data };
         }
-        const dataToLog = Object.assign({}, data, getEventMeta());
+        const dataToLog = Object.assign({}, data, getEventMeta(feature));
         this.eventLogger.info(eventTag, dataToLog);
       }.bind(this)
     };
