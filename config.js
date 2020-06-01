@@ -3,8 +3,7 @@
 
 const isProduction = process.env.NODE_ENV === "production" ? true : false;
 const logLevel = process.env.logLevel || (isProduction && "error") || "info";
-const logConsole =
-  process.env.logConsole == "true" || (isProduction ? false : true);
+const logConsole = isProduction ? false : (process.env.logConsole !== "false");
 
 const config = {
   eventLogger: {
